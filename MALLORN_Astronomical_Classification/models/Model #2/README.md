@@ -1,6 +1,6 @@
 # Model 1: Baseline XGBoost (Lightcurve Statistics)
 
-This notebook contains the second model for the competition.
+This notebook contains the second model for the competition. I used AI to create useful astronomical features, I do not have much knowledge in astronomy asides from a first year university elective.
 
 This model is a structured upgrade over Model 1, focused on fixing two core issues:
 - Astrophysical correctness (dust/extinction effects in flux measurements)
@@ -139,19 +139,17 @@ The dataset is imbalanced, so I use: scale_pos_weight to weight positive example
 Best F1: **0.5586**
 
 Best Parameters:
-```json
-{
-  "n_estimators": 3560,
-  "learning_rate": 0.0240,
-  "max_depth": 5,
-  "min_child_weight": 11,
-  "subsample": 0.5332,
-  "colsample_bytree": 0.5563,
-  "gamma": 0.7024,
-  "reg_alpha": 5.8620,
-  "reg_lambda": 9.4988,
-  "max_delta_step": 9
-}
+- Best params:
+  - n_estimators: 3560
+  - learning_rate: 0.0240
+  - max_depth: 5
+  - min_child_weight: 11
+  - subsample: 0.5332
+  - colsample_bytree: 0.5563
+  - gamma: 0.7024
+  - reg_alpha: 5.8620
+  - reg_lambda: 9.4988
+  - max_delta_step: 9
 
 ## Final training using the best CV hyperparameters
 
