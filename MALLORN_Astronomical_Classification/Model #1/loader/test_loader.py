@@ -1,8 +1,12 @@
 def build_test():
     import numpy as np
     import pandas as pd
+    from pathlib import Path
 
-    test_df = pd.read_csv("data/test_log.csv")
+    ROOT = Path.cwd().parents[0]
+    DATA_DIR = ROOT / "data"
+
+    test_df = pd.read_csv(DATA_DIR / "train_log.csv")
 
     for col in ["English Translation", "SpecType", "Z_err"]:
         if col in test_df.columns:
@@ -12,7 +16,7 @@ def build_test():
     idx_cache = {}
 
     for s in test_df["split"].unique():
-        path = f"data/{s}/test_full_lightcurves.csv"
+        path = DATA_DIR / str(s) / f"test_full_lightcurves.csv"
         lc = pd.read_csv(path)
         groups = lc.groupby("object_id").indices
 
