@@ -251,12 +251,12 @@ They also sample the same colors at `+20` and `+40` days to capture cooling/heat
 | `color_gr_slope40_obs` | `(color_gr(+40) - color_gr(0)) / 40` | Rate of color change over 40 days (more stable, less noisy) |
 | `color_ri_slope40_obs` | `(color_ri(+40) - color_ri(0)) / 40` | Rate of red color change over 40 days |
 
-## SpecType teacher stacking features (high-level)
+## SpecType teacher stacking features
 
-`add_spectype_teacher_features()` adds *legal stacking* features by training a multiclass model on **train only** to predict a grouped version of `SpecType`, then appending the predicted class probabilities as new features.
+`add_spectype_teacher_features()` adds legal stacking features by training a multiclass model on train only to predict a grouped version of `SpecType`, then appending the predicted class probabilities as new features.
 
 Key steps:
-- Map `SpecType` → `SpecTypeGroup` (TDE, AGN, SNIa, SNother, Other)
+- Map `SpecType` --> `SpecTypeGroup` (TDE, AGN, SNIa, SNother, Other)
 - Train a LightGBM multiclass model using CV splits by `split`
 - Create:
   - OOF probabilities for train

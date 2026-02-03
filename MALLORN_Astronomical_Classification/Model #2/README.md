@@ -1,4 +1,4 @@
-# Model 1: Baseline XGBoost (Lightcurve Statistics)
+# Model 2 (Physics-aware Features + Split-Safe CV XGBoost Ensemble)
 
 This notebook contains the second model for the competition. I used AI to create useful astronomical features, I do not have much knowledge in astronomy asides from a first year university elective.
 
