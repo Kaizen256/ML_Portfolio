@@ -1,13 +1,60 @@
-# ML-Models-on-Datasets
-Collection of machine learning projects created using scikit-learn, PyTorch, or implemented from scratch in NumPy. All projects are original, built from the ground up based on my own understanding. No tutorials were used, these are genuine implementations to deepen my grasp of ML concepts. All projects were created as I learned, so a few include less practical decisions, like evaluating an imbalanced classification problem using only accuracy.
+# ML / DL Portfolio
+From-scratch implementations and competition-grade ML systems.
 
-# Top Projects
-These are projects I am especially proud of. Each projects ipynb file contains fleshed out explanations of my thought process, and the code. This list will evolve as I continue to learn and build more.
+This repository is a curated portfolio of the best projects I have built end-to-end. They are full implementations.
 
-| Project                                  | Description                                                                                                                                                                                  | Location                                      |
-|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| **LeNet-5 on MNIST (NumPy & PyTorch)**   | Implemented LeNet-5 entirely from scratch in NumPy, with manual forward & backward for convolutions, pooling, and dense layers. Later replicated in PyTorch to achieve ~99% on MNIST.        | [`CNN from Scratch with NumPy/`](./CNN_from_Scratch_with_NumPy)           |
-| **Swin Transformer from Scratch (PyTorch)**   | Implemented the Shifted-window Transformer architecture, heavily modified for 64×64 Tiny ImageNet, with Relative Position Bias, Windowed Attention, stochastic depth, and CutMix / Mixup.        | [`Swin Transformer/`](./Swin_Transformer)           |
-| **Single Shot Multibox Detection (SSD)**     | Built SSD end-to-end in PyTorch on Penn-Fudan: custom GT-centered cropping to replace RandomIoUCrop, ResNet-34 multi-scale backbone, anchor generation (7760/image), IoU matching, hard-negative mining, and NMS inference. | [`Single Shot Multibox Detection/`](./Single_Shot_Multibox_Detection) |
-| **English–Japanese GRU Translator (NumPy)** | Encoder–decoder model built entirely in NumPy to translate short English sentences into Japanese. Manual GRU forward/backward, teacher forcing, gradient clipping, and backpropagation calculations written on paper.  | [`GRU Translator/`](./GRU_Encoder_Decoder_Numpy) |
-| **Transformer English–Japanese Translator (PyTorch)** | Implemented full Transformer encoder–decoder model from scratch in PyTorch, including attention, positional encodings, masking, and a custom LR scheduler. Outputs generated via beam search. | [`Transformer Translator/`](./Transformer_Encoder-Decoder) |
+## Core Capabilities
+
+- From-scratch deep learning with NumPy and math
+  - Manual forward/backward passes for CNNs and RNNs (NumPy), including gradient debugging and stability fixes
+- Modern architectures implemented with custom modules in PyTorch
+  - Transformer encoder–decoder, Swin Transformer, SSD object detection pipeline
+- Competition-grade ML pipelines
+  - Out-of-fold training, teacher stacking, multi-seed ensembling, Optuna hyperparameter optimization, weighted probability blending, feature creation and selection
+
+## Highlights
+
+- **MALLORN Astronomical Classification Competition**
+  - **29th out of 2389 entrants (893 teams)**
+  - Built a feature-engineered, teacher-stacked, Optuna-tuned XGBoost pipeline for imbalanced classification on LSST-like multi-band lightcurves
+- **Manual gradient implementations**
+  - Implemented and debugged full backprop for convolutional layers, pooling, dense layers, and GRU gates (NumPy)
+- **Systems-level ML engineering**
+  - Detection pipeline with anchors, IoU matching, hard negative mining, decoding, and Non-maximum Suppression
+  - Training mechanics: AMP, warmup + cosine scheduling, stochastic depth, Mixup/CutMix, gradient clipping
+
+## Project Index
+
+| Project | Domain | What it demonstrates | Key Result | Location |
+|---|---|---|---|---|
+| **MALLORN Astronomical Classification Competition** | Time Series + Tabular ML | Feature engineering, leakage-safe CV, OOF predictions, teacher stacking, Optuna on OOF F1, threshold tuning, multi-seed ensembling | 29th / 2389 entrants, F1 ≈ 0.66 private LB | [`MALLORN_Astronomical_Classification_Competition/`](./MALLORN_Astronomical_Classification) |
+| **LeNet-5 on MNIST (NumPy)** | Computer Vision | CNN from scratch in NumPy + PyTorch replication | ~94% test accuracy (NumPy) (minimal training) | [`CNN_from_Scratch_with_NumPy/`](./CNN_from_Scratch_with_NumPy) |
+| **Swin Transformer (Tiny)** | Computer Vision | Windowed attention, shifted windows, modern training stack | ~56% Top-1 on Tiny ImageNet | [`Swin_Transformer/`](./Swin_Transformer) |
+| **SSD (ResNet-34) Detector** | Computer Vision | Anchors, IoU matching, hard-negative mining, NMS | Correct pedestrian detection on Penn-Fudan | [`Single_Shot_Multibox_Detection/`](./Single_Shot_Multibox_Detection) |
+| **GRU Translator (NumPy)** | NLP | Full BPTT GRU encoder–decoder | Stable predictions in PyTorch replication | [`GRU_Encoder_Decoder_Numpy/`](./GRU_Encoder_Decoder_Numpy) |
+| **Transformer Translator** | NLP | Transformer encoder–decoder + beam search | Working beam-search translations | [`Transformer_Encoder-Decoder/`](./Transformer_Encoder-Decoder) |
+
+
+## Featured Project: MALLORN (Kaggle Competition)
+
+**Task:** Detect tidal disruption events (TDEs) using only photometric lightcurves (no spectra).  
+**Data:** Irregular multi-band time series (LSST filters `u,g,r,i,z,y`) with object metadata (`Z`, `Z_err`, `EBV`, and train-only `SpecType`).  
+**Core constraints:** Strong class imbalance and split-structured data that can cause leakage with naive validation.
+
+### Outcome
+
+- **29th out of 2389 entrants (893 teams)**
+- Strong final leaderboard performance under tight time constraints (about 2 weeks instead of the full 4 months)
+
+## How to navigate this repo
+Start with the project README in each folder for architecture diagrams, design decisions, and results.
+
+Each project folder contains:
+- `README.md` with implementation details and results
+- Fully commented Jupyter notebooks that include the full code and walk through the entire project step by step.
+- Requirements are in `requirements.txt`
+
+## Contact
+
+- LinkedIn: https://www.linkedin.com/in/kaizen-rowe-1a0998349/
+- Email: rowekaizen@gmail.com

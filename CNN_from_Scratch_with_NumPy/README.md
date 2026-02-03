@@ -56,10 +56,13 @@ To get practical results, I replicated the model in PyTorch and trained it on Ka
 
 ## Conclusion
 
-Successfully implemented LeNet-5 from scratch in NumPy, including full manual forward & backward passes for convolutions, pooling, and dense layers.
-I debugged critical mistakes:
-- Initially forgot to use the padded input in convolution backpropagation, breaking gradient flow.
-- Accidentally used sigmoid in all layers (causing severe vanishing gradients) before switching to tanh in conv layers, plus properly matched LeCun and Xavier initializations.
+In this project, I successfully implemented the LeNet-5 architecture from scratch in Numpy, including forward and backward passes for convolutions, pooling, and fc layers. It was extremely slow so I trained on only 10,000 images. I then replicated it in PyTorch to train for a longer time. I made two mistakes that took me a long time to debug.
+
+Backpropagation through padding:
+Initially, I forgot to account for the padding applied in the first convolutional layer during backpropagation. This led to incorrect gradient computations because the backward pass was slicing over the original unpadded input, mismatching the forward pass, causing a stagnant 10% accuracy (randomly guessing). I fixed this by making my convolution function return the padded input, then making backpropagation use that padded input instead of the default input.
+
+Mismatched activation functions and initialization:
+After I fixed the padding error, it was still stagnant at 10% accuracy. I printed out the gradients and saw that all of them were tiny, on verge of vanishing. Even if they didn't vanish, updates would be ridiculously slow. I double checked the architecture and saw that I made a mistake. I used sigmoid activations across all layers, including the convolutional ones, with Xavier initialization. I thought LeNet-5 used only sigmoid as the activation function, but it actually used Tanh for the convolutional layers, and sigmoid for the fc layers. I fixed that and used LeCun as initialization for the convolutional layers, and Xavier initialization with a bit of scaling for the fc layers. This dramatically improved gradient flow and allowed the network to actually learn.
 
 Replicated the architecture in PyTorch and trained it on a GPU, achieving ~99% accuracy.
 
