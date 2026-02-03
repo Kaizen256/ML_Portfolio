@@ -27,7 +27,7 @@ This repository is a curated portfolio of the best projects I have built end-to-
 
 | Project | Domain | What it demonstrates | Key Result | Location |
 |---|---|---|---|---|
-| **MALLORN Astronomical Classification Competition** | Time Series + Tabular ML | Feature engineering, leakage-safe CV, OOF predictions, teacher stacking, Optuna on OOF F1, threshold tuning, multi-seed ensembling | 29th / 2389 entrants, F1 ≈ 0.66 private LB | [`MALLORN_Astronomical_Classification_Competition/`](./MALLORN_Astronomical_Classification) |
+| **MALLORN Astronomical Classification Competition** | Time Series + Tabular ML | Feature engineering, teacher stacking, Optuna on OOF F1, multi-seed ensembling | 29th / 2389 entrants, F1 ≈ 0.66 private LB | [`MALLORN_Astronomical_Classification_Competition/`](./MALLORN_Astronomical_Classification) |
 | **LeNet-5 on MNIST (NumPy)** | Computer Vision | CNN from scratch in NumPy + PyTorch replication | ~94% test accuracy (NumPy) (minimal training) | [`CNN_from_Scratch_with_NumPy/`](./CNN_from_Scratch_with_NumPy) |
 | **Swin Transformer (Tiny)** | Computer Vision | Windowed attention, shifted windows, modern training stack | ~56% Top-1 on Tiny ImageNet | [`Swin_Transformer/`](./Swin_Transformer) |
 | **SSD (ResNet-34) Detector** | Computer Vision | Anchors, IoU matching, hard-negative mining, NMS | Correct pedestrian detection on Penn-Fudan | [`Single_Shot_Multibox_Detection/`](./Single_Shot_Multibox_Detection) |
