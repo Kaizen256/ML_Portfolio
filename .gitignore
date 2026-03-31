@@ -39,6 +39,7 @@ external_genept
 external_sig
 Submissions
 Myllia_Competition/external
-early_data
-Urban_Flood_Bench_Competition_
-Myllia_Competition_
+early_data\
+Urban_Flood_Bench_Competition/early_data
+
+.gitignore
