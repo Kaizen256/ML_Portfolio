@@ -33,7 +33,6 @@ secrets/
 credentials/
 .DS_Store
 
-zz_practice
 .gitignore
 external_genept
 external_sig
@@ -41,6 +40,5 @@ Submissions
 Myllia_Competition/external
 early_data\
 Urban_Flood_Bench_Competition/early_data
-test3.py
 
 .gitignore
